@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Editor JDM</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <span class="badge">Proyecto HTML + CSS + JavaScript</span>
+      <h1>Editor JDM con actualización en tiempo real</h1>
+      <p>
+        Personaliza nombre, colores, icono inferior y efecto de líneas del mapa del
+        Departamento de Amazonas sobre las letras, tal como se aprecia en el diseño JDM.
+      </p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel" aria-label="Panel de edición">
+      <h2>Controles del diseño</h2>
+
+      <label for="textoSuperior">Texto superior</label>
+      <input id="textoSuperior" type="text" value="LA FAMILIA" maxlength="35" />
+
+      <label for="nombrePrincipal">Nombre o apellido</label>
+      <input id="nombrePrincipal" type="text" value="MOLINA" maxlength="28" />
+
+      <label for="textoInferior">Texto inferior</label>
+      <input id="textoInferior" type="text" value="JDM" maxlength="18" />
+
+      <label for="iconoBase">Selección de iconos</label>
+      <select id="iconoBase">
+        <option value="principal">JDM principal rojo</option>
+        <option value="mapa">JDM con mapa</option>
+        <option value="ninguno">Sin icono</option>
+      </select>
+
+      <div class="grid-2">
+        <div>
+          <label for="colorNombre">Color nombre</label>
+          <input id="colorNombre" type="color" value="#ff1515" />
+        </div>
+        <div>
+          <label for="colorNombre2">Degradado nombre</label>
+          <input id="colorNombre2" type="color" value="#930000" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="colorSuperior">Color superior</label>
+          <input id="colorSuperior" type="color" value="#ffffff" />
+        </div>
+        <div>
+          <label for="colorInferior">Color inferior</label>
+          <input id="colorInferior" type="color" value="#ff1515" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="colorContorno">Contorno / sombra</label>
+          <input id="colorContorno" type="color" value="#000000" />
+        </div>
+        <div>
+          <label for="fondo">Fondo</label>
+          <select id="fondo">
+            <option value="degradado">Degradado oscuro</option>
+            <option value="negro">Negro</option>
+            <option value="transparente">Transparente</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="tamanoNombre">Tamaño del nombre</label>
+      <input id="tamanoNombre" type="range" min="120" max="420" value="300" />
+
+      <div class="grid-2">
+        <div>
+          <label for="tamanoSuperior">Tamaño superior</label>
+          <input id="tamanoSuperior" type="range" min="35" max="120" value="72" />
+        </div>
+        <div>
+          <label for="tamanoInferior">Tamaño inferior</label>
+          <input id="tamanoInferior" type="range" min="70" max="240" value="160" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="posNombreY">Posición nombre</label>
+          <input id="posNombreY" type="range" min="360" max="780" value="560" />
+        </div>
+        <div>
+          <label for="posInferiorY">Posición texto inferior</label>
+          <input id="posInferiorY" type="range" min="860" max="1220" value="1060" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="espaciado">Espaciado letras</label>
+          <input id="espaciado" type="range" min="0" max="18" value="4" />
+        </div>
+        <div>
+          <label for="inclinacion">Inclinación</label>
+          <input id="inclinacion" type="range" min="0" max="28" value="14" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="logoScale">Tamaño del icono</label>
+          <input id="logoScale" type="range" min="0.25" max="0.90" step="0.01" value="0.52" />
+        </div>
+        <div>
+          <label for="logoY">Posición del icono</label>
+          <input id="logoY" type="range" min="980" max="1280" value="1130" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="logoOpacity">Opacidad icono</label>
+          <input id="logoOpacity" type="range" min="0.10" max="1" step="0.05" value="1" />
+        </div>
+        <div>
+          <label for="mapaEscala">Escala líneas mapa</label>
+          <input id="mapaEscala" type="range" min="0.30" max="1.50" step="0.01" value="0.82" />
+        </div>
+      </div>
+
+      <div class="checks">
+        <div class="check">
+          <input id="mostrarMapaEnLetras" type="checkbox" checked />
+          <label for="mostrarMapaEnLetras">Mostrar líneas del mapa en el nombre</label>
+        </div>
+        <div class="check">
+          <input id="mostrarIcono" type="checkbox" checked />
+          <label for="mostrarIcono">Mostrar icono seleccionado</label>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="descargar" class="btn primary">Descargar PNG</button>
+        <button id="restablecer" class="btn secondary">Restablecer</button>
+      </div>
+
+      <p class="hint">
+        Todo se actualiza en tiempo real con JavaScript. Puedes cambiar apellido,
+        colores o icono, y el lienzo se redibuja automáticamente.
+      </p>
+    </section>
+
+    <section class="preview" aria-label="Vista previa">
+      <canvas id="lienzo" width="1600" height="1600"></canvas>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
