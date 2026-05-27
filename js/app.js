@@ -310,7 +310,7 @@ document.getElementById("restablecer").addEventListener("click", () => {
 });
 
 document.getElementById("descargar").addEventListener("click", () => {
-  const nombreArchivo = texto("nombrePrincipal", "MOLINA")
+  const nombreArchivo = texto("nombrePrincipal", "TORRES")
     .toLowerCase()
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
